@@ -10,12 +10,66 @@
         body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #ffffff; }
         .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
         .steel-gradient { background: linear-gradient(145deg, #e0e0e0, #888888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .form-control { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16); color: #ffffff; }
+        .form-control:focus { outline: 2px solid rgba(96, 165, 250, 0.7); outline-offset: 2px; border-color: rgba(96, 165, 250, 0.9); }
+        .form-control option { background-color: #18181b; color: #ffffff; }
     </style>
 </head>
 <body>
 
-    <header class="min-h-screen flex flex-col items-center justify-start md:justify-center text-center px-4 py-8 md:py-0">
+    <header class="min-h-screen flex flex-col items-center justify-start md:justify-center text-center px-4 py-8 md:py-12">
         <h1 class="text-5xl md:text-7xl font-bold mb-4 steel-gradient">S S SIGN</h1>
+        <section class="w-full max-w-6xl mb-10 text-left">
+            <div class="glass w-full max-w-xl rounded-2xl p-5 md:p-6 shadow-2xl">
+                <div class="flex flex-col gap-1 mb-5">
+                    <h2 class="text-2xl md:text-3xl font-bold">Signage Estimator</h2>
+                    <p class="text-sm text-gray-400">Instant quote for custom signage sizes.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <label class="sm:col-span-3">
+                        <span class="block text-sm font-semibold text-gray-300 mb-2">Material</span>
+                        <select id="material" class="form-control w-full rounded-lg px-4 py-3">
+                            <option value="ss-nameplate">Stainless Steel nameplate</option>
+                            <option value="ss-letters">Stainless Steel Letters</option>
+                            <option value="acrylic-nameplate">Acrylic 8mm nameplate</option>
+                            <option value="granite-board">Black granite stone board</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        <span class="block text-sm font-semibold text-gray-300 mb-2">Length</span>
+                        <input id="length" type="number" min="0" step="0.01" value="12" class="form-control w-full rounded-lg px-4 py-3" aria-label="Length">
+                    </label>
+
+                    <label>
+                        <span class="block text-sm font-semibold text-gray-300 mb-2">Height</span>
+                        <input id="height" type="number" min="0" step="0.01" value="12" class="form-control w-full rounded-lg px-4 py-3" aria-label="Height">
+                    </label>
+
+                    <label>
+                        <span class="block text-sm font-semibold text-gray-300 mb-2">Measurement</span>
+                        <select id="unit" class="form-control w-full rounded-lg px-4 py-3">
+                            <option value="in">inch</option>
+                            <option value="mm">mm</option>
+                            <option value="cm">cm</option>
+                            <option value="ft">feet</option>
+                            <option value="m">m</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div>
+                        <span class="block text-sm text-gray-400">Estimated Quote</span>
+                        <strong id="quote" class="text-3xl md:text-4xl font-bold text-white">Rs 1,000</strong>
+                    </div>
+                    <a id="whatsappQuote" href="https://wa.me/8332099014" class="inline-flex items-center justify-center rounded-lg bg-green-600 px-5 py-3 font-semibold text-white shadow-lg transition-all hover:bg-green-700">
+                        Send quote on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
         <p class="text-gray-400 text-lg md:text-xl max-w-2xl mb-12">
             Precision-engineered stainless steel nameplates and architectural lettering for homes and businesses.
         </p>
@@ -52,5 +106,66 @@
         </a>
     </div>
 
+    <script>
+        const materialRates = {
+            'ss-nameplate': {
+                label: 'Stainless Steel nameplate',
+                rate: 1000 / 144
+            },
+            'ss-letters': {
+                label: 'Stainless Steel Letters',
+                rate: 540 / 60
+            },
+            'acrylic-nameplate': {
+                label: 'Acrylic 8mm nameplate',
+                rate: 1500 / 144
+            },
+            'granite-board': {
+                label: 'Black granite stone board',
+                rate: 800 / 144
+            }
+        };
+
+        const unitToInches = {
+            mm: 1 / 25.4,
+            cm: 1 / 2.54,
+            m: 39.37007874,
+            in: 1,
+            ft: 12
+        };
+
+        const materialInput = document.getElementById('material');
+        const lengthInput = document.getElementById('length');
+        const heightInput = document.getElementById('height');
+        const unitInput = document.getElementById('unit');
+        const quoteOutput = document.getElementById('quote');
+        const whatsappQuote = document.getElementById('whatsappQuote');
+
+        function formatQuote(value) {
+            return `Rs ${Math.round(value).toLocaleString('en-IN')}`;
+        }
+
+        function updateQuote() {
+            const selectedMaterial = materialRates[materialInput.value];
+            const length = Math.max(Number(lengthInput.value) || 0, 0);
+            const height = Math.max(Number(heightInput.value) || 0, 0);
+            const unit = unitInput.value;
+            const lengthInches = length * unitToInches[unit];
+            const heightInches = height * unitToInches[unit];
+            const quote = lengthInches * heightInches * selectedMaterial.rate;
+            const formattedQuote = formatQuote(quote);
+            const message = `Hi S S SIGN, I need a quote for ${selectedMaterial.label}. Size: ${length} ${unit} length x ${height} ${unit} height. Estimated quote: ${formattedQuote}.`;
+
+            quoteOutput.textContent = formattedQuote;
+            whatsappQuote.href = `https://wa.me/8332099014?text=${encodeURIComponent(message)}`;
+        }
+
+        [materialInput, lengthInput, heightInput, unitInput].forEach((field) => {
+            field.addEventListener('input', updateQuote);
+            field.addEventListener('change', updateQuote);
+        });
+
+        updateQuote();
+    </script>
 </body>
 </html>
