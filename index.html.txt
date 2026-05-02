@@ -22,14 +22,14 @@
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
             
-            <a href="YOUR_SHOWROOM_LINK_1" class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
+            <a href="https://www.sssign.top/" class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
                 <div class="h-48 mb-6 bg-[url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400')] bg-cover rounded-lg"></div>
                 <h3 class="text-2xl font-semibold mb-2">Residential Nameplates</h3>
                 <p class="text-gray-400 mb-4">Designer house plates with deep laser engraving.</p>
                 <span class="text-blue-400 group-hover:underline">Explore Collection →</span>
             </a>
 
-            <a href="YOUR_SHOWROOM_LINK_2" class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
+            <a href="https://www.thesssign.top/" class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
                 <div class="h-48 mb-6 bg-[url('https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?auto=format&fit=crop&w=400')] bg-cover rounded-lg"></div>
                 <h3 class="text-2xl font-semibold mb-2">3D Steel Letters</h3>
                 <p class="text-gray-400 mb-4">Premium LED and non-LED lettering for business branding.</p>
