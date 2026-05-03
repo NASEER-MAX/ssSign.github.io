@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Steel Designs | Premium Nameplates</title>
+    <title>S S SIGN | Premium Signage Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -30,8 +30,10 @@
                     <label class="sm:col-span-3">
                         <span class="block text-sm font-semibold text-gray-300 mb-2">Material</span>
                         <select id="material" class="form-control w-full rounded-lg px-4 py-3">
-                            <option value="ss-nameplate">Stainless Steel nameplate</option>
-                            <option value="ss-letters">Stainless Steel Letters</option>
+                            <option value="ss-nameplate-silver">Stainless Steel Silver nameplate</option>
+                            <option value="ss-nameplate-gold">Stainless Steel Gold nameplate</option>
+                            <option value="ss-letters-silver">Stainless Steel Silver Letters</option>
+                            <option value="ss-letters-gold">Stainless Steel Gold Letters</option>
                             <option value="acrylic-nameplate">Acrylic 8mm nameplate</option>
                             <option value="granite-board">Black granite stone board</option>
                         </select>
@@ -109,13 +111,21 @@
 
     <script>
         const materialRates = {
-            'ss-nameplate': {
-                label: 'Stainless Steel nameplate',
-                rate: 1000 / 144
+            'ss-nameplate-silver': {
+                label: 'Stainless Steel Silver nameplate',
+                rate: 1150 / 144
             },
-            'ss-letters': {
-                label: 'Stainless Steel Letters',
+            'ss-nameplate-gold': {
+                label: 'Stainless Steel Gold nameplate',
+                rate: 1250 / 108
+            },
+            'ss-letters-silver': {
+                label: 'Stainless Steel Silver Letters',
                 rate: 540 / 60
+            },
+            'ss-letters-gold': {
+                label: 'Stainless Steel Gold Letters',
+                rate: 660 / 60
             },
             'acrylic-nameplate': {
                 label: 'Acrylic 8mm nameplate',
@@ -123,7 +133,7 @@
             },
             'granite-board': {
                 label: 'Black granite stone board',
-                rate: 800 / 144
+                rate: 700 / 144
             }
         };
 
