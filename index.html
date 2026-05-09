@@ -107,12 +107,12 @@
                     </label>
 
                     <label>
-                        <span class="block text-sm font-semibold text-gray-300 mb-2">Length</span>
+                        <span class="block text-sm font-semibold text-gray-300 mb-2">Length (Horizontal)</span>
                         <input id="length" type="number" min="0" step="0.01" value="12" class="form-control w-full rounded-lg px-4 py-3" aria-label="Length">
                     </label>
 
                     <label>
-                        <span class="block text-sm font-semibold text-gray-300 mb-2">Height</span>
+                        <span class="block text-sm font-semibold text-gray-300 mb-2">Height (Vertical)</span>
                         <input id="height" type="number" min="0" step="0.01" value="12" class="form-control w-full rounded-lg px-4 py-3" aria-label="Height">
                     </label>
 
@@ -316,8 +316,7 @@
             const heightInches = height * unitToInches[unit];
             const quote = lengthInches * heightInches * selectedMaterial.rate;
             const formattedQuote = formatQuote(quote);
-            const message = `Hi S S SIGN, I need a quote for ${selectedMaterial.label}. Size: ${length} ${unit} length x ${height} ${unit} height. Estimated quote: ${formattedQuote}.`;
-
+            const message = `Hi S S SIGN,\nI need a quote for ${selectedMaterial.label}.\nSize: ${length} ${unit} length x ${height} ${unit} height. \nEstimated quote: ${formattedQuote}.`;
             quoteOutput.textContent = formattedQuote;
             whatsappQuote.href = `https://wa.me/918332099014?text=${encodeURIComponent(message)}`;
         }
