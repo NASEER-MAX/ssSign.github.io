@@ -79,17 +79,16 @@
 </head>
 <body>
 
-    <button id="themeToggle" type="button" aria-label="Switch to day mode" title="Switch theme" class="theme-toggle fixed right-4 top-4 z-10 rounded-xl border border-white/20 bg-white/10 shadow-lg backdrop-blur transition-all hover:bg-white/20 md:right-5 md:top-5">
-        <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"></circle>
-            <path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
-        </svg>
-        <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M20 14.5A7.8 7.8 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
-        </svg>
-    </button>
-
-    <header class="min-h-screen flex flex-col items-center justify-start md:justify-center text-center px-4 pb-8 pt-20 md:py-12">
+    <header class="relative min-h-screen flex flex-col items-center justify-start md:justify-center text-center px-4 pb-8 pt-16 md:py-12">
+        <button id="themeToggle" type="button" aria-label="Switch to day mode" title="Switch theme" class="theme-toggle absolute right-4 top-4 z-10 rounded-xl border border-white/20 bg-white/10 shadow-lg backdrop-blur transition-all hover:bg-white/20 md:right-5 md:top-5">
+            <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"></circle>
+                <path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+            </svg>
+            <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20 14.5A7.8 7.8 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+        </button>
         <h1 class="text-5xl md:text-7xl font-bold mb-4 steel-gradient">S S SIGN</h1>
         <section class="w-full max-w-6xl mb-10 text-left">
             <div class="glass w-full max-w-xl rounded-2xl p-5 md:p-6 shadow-2xl">
