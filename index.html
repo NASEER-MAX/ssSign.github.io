@@ -29,6 +29,18 @@
         .image-track { animation: scroll-gallery 28s linear infinite; }
         .gallery-strip:hover .image-track { animation-play-state: paused; }
         .gallery-image { width: 17rem; height: 12rem; object-fit: cover; flex: 0 0 auto; }
+        .product-slider { position: relative; height: 12rem; overflow: hidden; }
+        .product-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; animation: product-fade 16s infinite; }
+        .product-slide:nth-child(1) { animation-delay: 0s; }
+        .product-slide:nth-child(2) { animation-delay: 4s; }
+        .product-slide:nth-child(3) { animation-delay: 8s; }
+        .product-slide:nth-child(4) { animation-delay: 12s; }
+        .slider-dots { position: absolute; left: 0; right: 0; bottom: 0.65rem; display: flex; justify-content: center; gap: 0.35rem; z-index: 1; }
+        .slider-dot { width: 0.42rem; height: 0.42rem; border-radius: 9999px; background: rgba(255, 255, 255, 0.45); box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18); animation: dot-pulse 16s infinite; }
+        .slider-dot:nth-child(1) { animation-delay: 0s; }
+        .slider-dot:nth-child(2) { animation-delay: 4s; }
+        .slider-dot:nth-child(3) { animation-delay: 8s; }
+        .slider-dot:nth-child(4) { animation-delay: 12s; }
         .section-muted { color: #a3a3a3; }
         .icon-button { width: 3rem; height: 3rem; border-radius: 9999px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.16); background: rgba(255, 255, 255, 0.08); color: #ffffff; transition: transform 0.2s ease, background-color 0.2s ease; }
         .icon-button:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.16); }
@@ -63,6 +75,16 @@
         @keyframes scroll-gallery {
             from { transform: translateX(-50%); }
             to { transform: translateX(0); }
+        }
+
+        @keyframes product-fade {
+            0%, 22% { opacity: 1; }
+            28%, 100% { opacity: 0; }
+        }
+
+        @keyframes dot-pulse {
+            0%, 22% { background: #ffffff; transform: scale(1.25); }
+            28%, 100% { background: rgba(255, 255, 255, 0.45); transform: scale(1); }
         }
 
         @keyframes theme-slide {
@@ -171,42 +193,78 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
             
             <a href="https://www.sssign.top/" class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
-                <div class="h-48 mb-6 bg-[url('ssImages/goldNamePlate.png')] bg-cover rounded-lg"></div>
+                <div class="product-slider mb-6 rounded-lg">
+                    <img class="product-slide" src="ssImages/goldNamePlate.png" alt="Gold stainless steel residential nameplate">
+                    <img class="product-slide" src="images/GoldSSNameplate.jpeg" alt="Gold stainless steel nameplate design">
+                    <img class="product-slide" src="images/GoldSSLIGHTNameplate.jpeg" alt="Gold stainless steel light nameplate">
+                    <img class="product-slide" src="images/ssnameplate.jpeg" alt="Stainless steel residential nameplate">
+                    <div class="slider-dots" aria-hidden="true"><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span></div>
+                </div>
                 <h3 class="text-2xl font-semibold mb-2">Residential Nameplates</h3>
                 <p class="text-gray-400 mb-4">Designer house plates with deep laser engraving.</p>
                 <span class="text-blue-400 group-hover:underline">Explore Collection →</span>
             </a>
 
             <a href="https://www.thesssign.top/" class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
-                <div class="h-48 mb-6 bg-[url('ssImages/goldLetters.jpeg')] bg-cover rounded-lg"></div>
+                <div class="product-slider mb-6 rounded-lg">
+                    <img class="product-slide" src="ssImages/goldLetters.jpeg" alt="Gold stainless steel letters">
+                    <img class="product-slide" src="latestscroll/steelLetters.jpeg" alt="Steel letters signage">
+                    <img class="product-slide" src="latestscroll/blackletters.jpeg" alt="Black 3D letters signage">
+                    <img class="product-slide" src="ssImages/residGoldLetters.jpeg" alt="Gold 3D letters for residence">
+                    <div class="slider-dots" aria-hidden="true"><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span></div>
+                </div>
                 <h3 class="text-2xl font-semibold mb-2">3D Steel Letters</h3>
                 <p class="text-gray-400 mb-4">Premium LED and non-LED lettering for business branding.</p>
                 <span class="text-blue-400 group-hover:underline">Explore Collection →</span>
             </a>
 
             <a href="https://www.thesssign.top/" class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
-                <div class="h-48 mb-6 bg-[url('ssImages/blackLetters.jpeg')] bg-cover rounded-lg"></div>
+                <div class="product-slider mb-6 rounded-lg">
+                    <img class="product-slide" src="latestscroll/sayeedLED.jpeg" alt="LED sign board">
+                    <img class="product-slide" src="ssImages/sayeedmLED.jpeg" alt="LED signage board">
+                    <img class="product-slide" src="images/ledurduLetters.jpeg" alt="LED Urdu letters signage">
+                    <img class="product-slide" src="latestscroll/DpaintLetters.jpeg" alt="Painted industrial signage letters">
+                    <div class="slider-dots" aria-hidden="true"><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span></div>
+                </div>
                 <h3 class="text-2xl font-semibold mb-2">Industrial Signage</h3>
                 <p class="text-gray-400 mb-4">Durable, chemical-etched plates for heavy-duty use.</p>
                 <span class="text-blue-400 group-hover:underline">Explore Collection →</span>
             </a>
 
             <a href="https://www.thesssign.top/" class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
-                <div class="h-48 mb-6 bg-[url('ssImages/whiteMarbleEngraving.jpeg')] bg-cover rounded-lg"></div>
+                <div class="product-slider mb-6 rounded-lg">
+                    <img class="product-slide" src="latestscroll/whiteMarbleEngraving.jpeg" alt="White marble engraving work">
+                    <img class="product-slide" src="latestscroll/blackGrinite.jpeg" alt="Black granite stone board">
+                    <img class="product-slide" src="images/foundationNameplate.jpeg" alt="Foundation stone nameplate">
+                    <img class="product-slide" src="images/foundation2Nameplate.jpeg" alt="Foundation stone engraving plate">
+                    <div class="slider-dots" aria-hidden="true"><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span></div>
+                </div>
                 <h3 class="text-2xl font-semibold mb-2">Stone Engraving</h3>
                 <p class="text-gray-400 mb-4">Premium marble and stone engraving for foundation stones, plaques, and lasting commemorative displays.</p>
                 <span class="text-blue-400 group-hover:underline">Explore Collection →</span>
             </a>
 
             <a href="https://www.sssign.top/" class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
-                <div class="h-48 mb-6 bg-[url('images/acrylicNameplate.jpeg')] bg-cover rounded-lg"></div>
+                <div class="product-slider mb-6 rounded-lg">
+                    <img class="product-slide" src="images/acrylicNameplate.jpeg" alt="Acrylic nameplate">
+                    <img class="product-slide" src="images/acrylicNamplate.jpeg" alt="Acrylic house nameplate">
+                    <img class="product-slide" src="images/acrylicMashallahNameplate.jpeg" alt="Acrylic Mashallah nameplate">
+                    <img class="product-slide" src="images/blackmashallah.jpeg" alt="Black acrylic decorative nameplate">
+                    <div class="slider-dots" aria-hidden="true"><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span></div>
+                </div>
                 <h3 class="text-2xl font-semibold mb-2">Acrylic Nameplate</h3>
                 <p class="text-gray-400 mb-4">Clean acrylic nameplates with polished finishing for homes, offices, apartments, and reception areas.</p>
                 <span class="text-blue-400 group-hover:underline">Explore Collection →</span>
             </a>
 
             <a href="https://www.sssign.top/" class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
-                <div class="h-48 mb-6 bg-[url('images/acrylicNameplate.jpeg')] bg-cover rounded-lg"></div>
+                <div class="product-slider mb-6 rounded-lg">
+                    <img class="product-slide" src="images/nameplateDesign.jpeg" alt="Fixed nameplate design">
+                    <img class="product-slide" src="images/nameplateDesugn.jpeg" alt="Ready nameplate design">
+                    <img class="product-slide" src="images/telugunamplate.jpeg" alt="Telugu fixed nameplate design">
+                    <img class="product-slide" src="images/teluguSSNameplate.jpeg" alt="Telugu stainless steel nameplate design">
+                    <div class="slider-dots" aria-hidden="true"><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span></div>
+                </div>
                 <h3 class="text-2xl font-semibold mb-2">Fixed Design Nameplates</h3>
                 <p class="text-gray-400 mb-4">Ready fixed designs with no customization, priced simply by size for fast ordering and easy budgeting.</p>
                 <span class="text-blue-400 group-hover:underline">Explore Collection →</span>
