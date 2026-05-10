@@ -32,16 +32,15 @@
         .section-muted { color: #a3a3a3; }
         .icon-button { width: 3rem; height: 3rem; border-radius: 9999px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.16); background: rgba(255, 255, 255, 0.08); color: #ffffff; transition: transform 0.2s ease, background-color 0.2s ease; }
         .icon-button:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.16); }
-        .theme-toggle { width: 3rem; height: 3rem; display: inline-flex; align-items: center; justify-content: center; overflow: visible; }
-        .theme-toggle::before { content: ""; position: absolute; top: -1.1rem; width: 1px; height: 1.4rem; background: rgba(255, 255, 255, 0.5); transform-origin: bottom; }
-        .spidey-mask { position: relative; width: 1.9rem; height: 1.65rem; border-radius: 48% 48% 52% 52%; background: linear-gradient(135deg, #dc2626 0%, #ef4444 58%, #1d4ed8 59%, #2563eb 100%); box-shadow: inset 0 -0.25rem 0 rgba(0, 0, 0, 0.18); transition: transform 0.25s ease, filter 0.25s ease; }
-        .spidey-mask::before,
-        .spidey-mask::after { content: ""; position: absolute; top: 0.45rem; width: 0.48rem; height: 0.62rem; border-radius: 50% 45% 55% 50%; background: #ffffff; border: 1px solid #111827; }
-        .spidey-mask::before { left: 0.42rem; transform: rotate(22deg); }
-        .spidey-mask::after { right: 0.42rem; transform: rotate(-22deg); }
-        .theme-toggle:hover .spidey-mask { transform: translateY(-2px) scale(1.04); }
-        .theme-toggle.swing .spidey-mask,
-        .theme-toggle.swing::before { animation: web-swing 0.55s ease-in-out; }
+        .theme-toggle { width: 3.8rem; height: 2.35rem; display: inline-flex; align-items: center; justify-content: center; color: #facc15; position: relative; overflow: hidden; }
+        .theme-toggle::after { content: ""; position: absolute; left: 0.28rem; top: 0.28rem; width: 1.78rem; height: 1.78rem; border-radius: 0.65rem; background: rgba(255, 255, 255, 0.18); transition: transform 0.32s ease, background-color 0.32s ease; }
+        .theme-icon { position: absolute; z-index: 1; width: 1.05rem; height: 1.05rem; transition: opacity 0.25s ease, transform 0.35s ease; }
+        .sun-icon { opacity: 1; transform: translateX(-0.75rem) rotate(0deg) scale(1); }
+        .moon-icon { opacity: 0.45; transform: translateX(0.75rem) rotate(-25deg) scale(0.82); color: #dbeafe; }
+        .theme-toggle:hover .sun-icon { transform: translateX(-0.75rem) rotate(18deg) scale(1.08); }
+        .theme-toggle:hover .moon-icon { transform: translateX(0.75rem) rotate(-8deg) scale(0.9); }
+        .theme-toggle.slide .theme-icon,
+        .theme-toggle.slide::after { animation: theme-slide 0.45s ease; }
 
         body.day-mode { background-color: #f7f7f2; color: #151515; }
         body.day-mode .glass { background: rgba(255, 255, 255, 0.78); border-color: rgba(15, 23, 42, 0.12); box-shadow: 0 18px 50px rgba(15, 23, 42, 0.12); }
@@ -55,8 +54,9 @@
         body.day-mode .fixed .bg-green-600 { color: #ffffff; }
         body.day-mode .text-blue-400 { color: #2563eb; }
         body.day-mode #themeToggle { background: rgba(17, 24, 39, 0.9); border-color: rgba(17, 24, 39, 0.18); color: #ffffff; }
-        body.day-mode #themeToggle::before { background: rgba(17, 24, 39, 0.5); }
-        body.day-mode .spidey-mask { filter: saturate(1.2) brightness(1.08); }
+        body.day-mode #themeToggle::after { transform: translateX(1.48rem); background: rgba(255, 255, 255, 0.22); }
+        body.day-mode .sun-icon { opacity: 0.45; transform: translateX(-0.75rem) rotate(30deg) scale(0.82); color: #facc15; }
+        body.day-mode .moon-icon { opacity: 1; transform: translateX(0.75rem) rotate(0deg) scale(1); }
         body.day-mode .section-muted { color: #525252; }
         body.day-mode .icon-button { background: rgba(17, 24, 39, 0.06); border-color: rgba(17, 24, 39, 0.16); color: #111827; }
 
@@ -65,11 +65,10 @@
             to { transform: translateX(0); }
         }
 
-        @keyframes web-swing {
-            0% { transform: rotate(0deg) translateY(0); }
-            30% { transform: rotate(-18deg) translateY(-2px); }
-            65% { transform: rotate(14deg) translateY(1px); }
-            100% { transform: rotate(0deg) translateY(0); }
+        @keyframes theme-slide {
+            0% { filter: brightness(1); }
+            45% { filter: brightness(1.35); }
+            100% { filter: brightness(1); }
         }
 
         @media (max-width: 640px) {
@@ -80,11 +79,17 @@
 </head>
 <body>
 
-    <button id="themeToggle" type="button" aria-label="Switch to day mode" title="Switch theme" class="theme-toggle fixed right-4 top-4 z-10 rounded-full border border-white/20 bg-white/10 text-white shadow-lg backdrop-blur transition-all hover:bg-white/20 md:right-5 md:top-5">
-        <span class="spidey-mask" aria-hidden="true"></span>
+    <button id="themeToggle" type="button" aria-label="Switch to day mode" title="Switch theme" class="theme-toggle fixed right-4 top-4 z-10 rounded-xl border border-white/20 bg-white/10 shadow-lg backdrop-blur transition-all hover:bg-white/20 md:right-5 md:top-5">
+        <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"></circle>
+            <path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+        </svg>
+        <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20 14.5A7.8 7.8 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
     </button>
 
-    <header class="min-h-screen flex flex-col items-center justify-start md:justify-center text-center px-4 pb-8 pt-24 md:py-12">
+    <header class="min-h-screen flex flex-col items-center justify-start md:justify-center text-center px-4 pb-8 pt-20 md:py-12">
         <h1 class="text-5xl md:text-7xl font-bold mb-4 steel-gradient">S S SIGN</h1>
         <section class="w-full max-w-6xl mb-10 text-left">
             <div class="glass w-full max-w-xl rounded-2xl p-5 md:p-6 shadow-2xl">
@@ -253,7 +258,7 @@
     </main>
 
     <div class="fixed bottom-5 right-5 md:bottom-8 md:right-8">
-        <a href="https://wa.me/918332099014" aria-label="Chat via WhatsApp" class="flex h-14 w-14 items-center justify-center rounded-full bg-green-600 text-center text-[10px] font-bold leading-tight text-white shadow-lg transition-all hover:bg-green-700 md:h-auto md:w-auto md:px-4 md:py-4 md:text-base md:font-normal">
+        <a href="https://wa.me/918332099014" aria-label="Chat via WhatsApp" class="flex h-14 w-14 items-center justify-center rounded-full bg-green-600 text-center text-[10px] font-bold leading-tight text-white shadow-lg transition-all hover:bg-green-700 md:h-10 md:w-auto md:px-3 md:py-0 md:text-sm md:font-semibold">
             <span class="md:hidden">Whats<br>@pp</span>
             <span class="hidden md:inline">Chat via WhatsApp</span>
         </a>
@@ -329,9 +334,9 @@
         themeToggle.addEventListener('click', () => {
             const isDayMode = document.body.classList.toggle('day-mode');
             themeToggle.setAttribute('aria-label', isDayMode ? 'Switch to night mode' : 'Switch to day mode');
-            themeToggle.classList.remove('swing');
+            themeToggle.classList.remove('slide');
             void themeToggle.offsetWidth;
-            themeToggle.classList.add('swing');
+            themeToggle.classList.add('slide');
         });
 
         updateQuote();
