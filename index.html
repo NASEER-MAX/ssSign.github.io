@@ -29,11 +29,17 @@
         .image-track { animation: scroll-gallery 28s linear infinite; }
         .gallery-strip:hover .image-track { animation-play-state: paused; }
         .gallery-image { width: 17rem; height: 12rem; object-fit: cover; flex: 0 0 auto; }
-        .product-slider { position: relative; height: 12rem; overflow-x: auto; overflow-y: hidden; display: flex; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-        .product-slider::-webkit-scrollbar { display: none; }
+        .product-slider { position: relative; height: 12rem; overflow: hidden; }
+        .product-track { height: 100%; display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        .product-track::-webkit-scrollbar { display: none; }
         .product-slide { width: 100%; height: 100%; flex: 0 0 100%; object-fit: cover; scroll-snap-align: center; }
-        .slider-dots { position: absolute; left: 0; right: 0; bottom: 0.65rem; display: flex; justify-content: center; gap: 0.35rem; z-index: 1; pointer-events: none; }
-        .slider-dot { width: 0.42rem; height: 0.42rem; border-radius: 9999px; background: rgba(255, 255, 255, 0.72); box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25); }
+        .slider-dots { position: absolute; left: 0; right: 0; bottom: 0.55rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.28rem; row-gap: 0.2rem; padding: 0 2.6rem; z-index: 1; pointer-events: none; }
+        .slider-dot { width: 0.32rem; height: 0.32rem; border-radius: 9999px; background: rgba(255, 255, 255, 0.72); box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25); }
+        .slider-button { display: none; position: absolute; top: 50%; z-index: 2; width: 2rem; height: 2rem; transform: translateY(-50%); border-radius: 9999px; background: rgba(10, 10, 10, 0.58); color: #ffffff; align-items: center; justify-content: center; font-size: 1.2rem; line-height: 1; transition: background-color 0.2s ease, transform 0.2s ease; }
+        .slider-button:hover { background: rgba(10, 10, 10, 0.82); transform: translateY(-50%) scale(1.06); }
+        .slider-button.prev { left: 0.6rem; }
+        .slider-button.next { right: 0.6rem; }
+        @media (min-width: 768px) { .slider-button { display: inline-flex; } }
         .section-muted { color: #a3a3a3; }
         .icon-button { width: 3rem; height: 3rem; border-radius: 9999px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.16); background: rgba(255, 255, 255, 0.08); color: #ffffff; transition: transform 0.2s ease, background-color 0.2s ease; }
         .icon-button:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.16); }
@@ -64,6 +70,7 @@
         body.day-mode .moon-icon { opacity: 1; transform: translateX(0.75rem) rotate(0deg) scale(1); }
         body.day-mode .section-muted { color: #525252; }
         body.day-mode .icon-button { background: rgba(17, 24, 39, 0.06); border-color: rgba(17, 24, 39, 0.16); color: #111827; }
+        body.day-mode .slider-button { background: rgba(17, 24, 39, 0.68); color: #ffffff; }
 
         @keyframes scroll-gallery {
             from { transform: translateX(-50%); }
@@ -178,85 +185,169 @@
         </section>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
-            
             <div class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
                 <div class="product-slider mb-6 rounded-lg">
-                    <img class="product-slide" src="ssImages/goldNamePlate.png" alt="Gold stainless steel residential nameplate">
-                    <img class="product-slide" src="images/GoldSSNameplate.jpeg" alt="Gold stainless steel nameplate design">
-                    <img class="product-slide" src="images/GoldSSLIGHTNameplate.jpeg" alt="Gold stainless steel light nameplate">
-                    <img class="product-slide" src="images/ssnameplate.jpeg" alt="Stainless steel residential nameplate">
-                    <div class="slider-dots" aria-hidden="true"><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span></div>
+                    <div class="product-track">
+                        <img class="product-slide" src="images/residentail%20Nameplates/20171122_144208.jpg" alt="Residential nameplate design">
+                        <img class="product-slide" src="images/residentail%20Nameplates/20171123_144253.jpg" alt="Residential nameplate design">
+                        <img class="product-slide" src="images/residentail%20Nameplates/Firefly.jpg" alt="Residential nameplate design">
+                        <img class="product-slide" src="images/residentail%20Nameplates/foundation2Nameplate.jpeg" alt="Residential nameplate design">
+                        <img class="product-slide" src="images/residentail%20Nameplates/foundationSSplate.jpeg" alt="Residential nameplate design">
+                        <img class="product-slide" src="images/residentail%20Nameplates/goldNamePlate.png" alt="Residential nameplate design">
+                        <img class="product-slide" src="images/residentail%20Nameplates/IMG_20190406_171659.jpg" alt="Residential nameplate design">
+                        <img class="product-slide" src="images/residentail%20Nameplates/IMG_20240808_182031.jpg" alt="Residential nameplate design">
+                        <img class="product-slide" src="images/residentail%20Nameplates/IMG_20250305_144336.jpg" alt="Residential nameplate design">
+                        <img class="product-slide" src="images/residentail%20Nameplates/inaugSSNameplate.jpeg" alt="Residential nameplate design">
+                        <img class="product-slide" src="images/residentail%20Nameplates/ssnameplate.jpg" alt="Residential nameplate design">
+                        <img class="product-slide" src="images/residentail%20Nameplates/telugunamplate.jpeg" alt="Residential nameplate design">
+                        <img class="product-slide" src="images/residentail%20Nameplates/teluguSSNameplate.jpg" alt="Residential nameplate design">
+                    </div>
+                    <button class="slider-button prev" type="button" aria-label="Previous Residential Nameplates image">‹</button>
+                    <button class="slider-button next" type="button" aria-label="Next Residential Nameplates image">›</button>
+                    <div class="slider-dots" aria-hidden="true"><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span></div>
                 </div>
                 <h3 class="text-2xl font-semibold mb-2">Residential Nameplates</h3>
-                <p class="text-gray-400 mb-4">Designer house plates with deep laser engraving.</p>
+                <p class="text-gray-400 mb-4">Custom home nameplates with premium stainless steel, gold, silver, and engraved finishes for a polished entrance.</p>
                 <a href="https://www.sssign.top/" class="text-blue-400 hover:underline">Explore Collection →</a>
             </div>
-
             <div class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
                 <div class="product-slider mb-6 rounded-lg">
-                    <img class="product-slide" src="ssImages/goldLetters.jpeg" alt="Gold stainless steel letters">
-                    <img class="product-slide" src="latestscroll/steelLetters.jpeg" alt="Steel letters signage">
-                    <img class="product-slide" src="latestscroll/blackletters.jpeg" alt="Black 3D letters signage">
-                    <img class="product-slide" src="ssImages/residGoldLetters.jpeg" alt="Gold 3D letters for residence">
-                    <div class="slider-dots" aria-hidden="true"><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span></div>
+                    <div class="product-track">
+                        <img class="product-slide" src="images/goldLetters/20180927_162156.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/goldLetters/20181125_110910.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/goldLetters/goldLetters.jpeg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/goldLetters/IMG_20240101_180829.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/goldLetters/IMG_20240302_160519.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/goldLetters/IMG_20240826_180905.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/goldLetters/IMG_20240826_180913.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/goldLetters/IMG_20250618_150517.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/goldLetters/IMG_20250618_150621.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/goldLetters/IMG_20250802_175856.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/goldLetters/IMG_20250804_132928.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/goldLetters/IMG_20251004_154442.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/goldLetters/IMG_20260218_150127.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/goldLetters/IMG_20260222_155540.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/goldLetters/muhammedGoldLetters.jpeg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/goldLetters/residGoldLetters.jpeg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/20170514_122827.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/20180106_154419.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/20180526_122907.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/20180526_130518.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/20180527_223942.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/20180609_110400.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/blackLetters.jpeg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/blackmashallah.jpeg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/ganeshDesign.jpeg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/haza_Black_letters.jpeg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/IMG_20240716_125402.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/IMG_20240825_185829.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/IMG_20250225_130536.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/IMG_20250225_130546.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/IMG_20250322_160001.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/IMG_20250407_193007.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/IMG_20250407_193034.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/IMG_20250407_193047.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/IMG_20250411_110051.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/IMG_20250817_141022.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/IMG_20250823_154001.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/IMG_20260220_105742.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/IMG_20260220_160935.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/IMG_20260414_163929.jpg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/ledurduLetters.jpeg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/renukaSSletters.jpeg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/shankuDesign.jpeg" alt="3D stainless steel letters signage">
+                        <img class="product-slide" src="images/silverLetters/shankuSSletters.jpeg" alt="3D stainless steel letters signage">
+                    </div>
+                    <button class="slider-button prev" type="button" aria-label="Previous 3D Steel Letters image">‹</button>
+                    <button class="slider-button next" type="button" aria-label="Next 3D Steel Letters image">›</button>
+                    <div class="slider-dots" aria-hidden="true"><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span></div>
                 </div>
                 <h3 class="text-2xl font-semibold mb-2">3D Steel Letters</h3>
-                <p class="text-gray-400 mb-4">Premium LED and non-LED lettering for business branding.</p>
-                <a href="https://www.thesssign.top/" class="text-blue-400 hover:underline">Explore Collection →</a>
+                <p class="text-gray-400 mb-4">Raised stainless steel letters for shops, offices, apartments, and building fronts with strong visibility.</p>
+                <a href="https://www.sssign.top/" class="text-blue-400 hover:underline">Explore Collection →</a>
             </div>
-
             <div class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
                 <div class="product-slider mb-6 rounded-lg">
-                    <img class="product-slide" src="latestscroll/sayeedLED.jpeg" alt="LED sign board">
-                    <img class="product-slide" src="ssImages/sayeedmLED.jpeg" alt="LED signage board">
-                    <img class="product-slide" src="images/ledurduLetters.jpeg" alt="LED Urdu letters signage">
-                    <img class="product-slide" src="latestscroll/DpaintLetters.jpeg" alt="Painted industrial signage letters">
-                    <div class="slider-dots" aria-hidden="true"><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span></div>
+                    <div class="product-track">
+                        <img class="product-slide" src="images/goldLEDLetters/IMG_20230609_193830.jpg" alt="Industrial signage and LED letters">
+                        <img class="product-slide" src="images/goldLEDLetters/IMG_20250923_210754.jpg" alt="Industrial signage and LED letters">
+                        <img class="product-slide" src="images/goldLEDLetters/IMG_20250923_210811.jpg" alt="Industrial signage and LED letters">
+                        <img class="product-slide" src="images/goldLEDLetters/IMG_20250923_211231.jpg" alt="Industrial signage and LED letters">
+                        <img class="product-slide" src="images/acrylicletters/sayeedmLED.jpeg" alt="Industrial signage and LED letters">
+                    </div>
+                    <button class="slider-button prev" type="button" aria-label="Previous Industrial Signage image">‹</button>
+                    <button class="slider-button next" type="button" aria-label="Next Industrial Signage image">›</button>
+                    <div class="slider-dots" aria-hidden="true"><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span></div>
                 </div>
                 <h3 class="text-2xl font-semibold mb-2">Industrial Signage</h3>
-                <p class="text-gray-400 mb-4">Durable, chemical-etched plates for heavy-duty use.</p>
-                <a href="https://www.thesssign.top/" class="text-blue-400 hover:underline">Explore Collection →</a>
+                <p class="text-gray-400 mb-4">LED, acrylic, and durable letter signage built for commercial fronts, factories, and business branding.</p>
+                <a href="https://www.sssign.top/" class="text-blue-400 hover:underline">Explore Collection →</a>
             </div>
-
             <div class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
                 <div class="product-slider mb-6 rounded-lg">
-                    <img class="product-slide" src="latestscroll/whiteMarbleEngraving.jpeg" alt="White marble engraving work">
-                    <img class="product-slide" src="latestscroll/blackGrinite.jpeg" alt="Black granite stone board">
-                    <img class="product-slide" src="images/foundationNameplate.jpeg" alt="Foundation stone nameplate">
-                    <img class="product-slide" src="images/foundation2Nameplate.jpeg" alt="Foundation stone engraving plate">
-                    <div class="slider-dots" aria-hidden="true"><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span></div>
+                    <div class="product-track">
+                        <img class="product-slide" src="images/stone/blackGrinite.jpeg" alt="Stone engraving signage board">
+                        <img class="product-slide" src="images/stone/graveNameplate.jpeg" alt="Stone engraving signage board">
+                        <img class="product-slide" src="images/stone/IMG_20190215_190552.jpg" alt="Stone engraving signage board">
+                        <img class="product-slide" src="images/stone/IMG_20250128_173045.jpg" alt="Stone engraving signage board">
+                        <img class="product-slide" src="images/stone/IMG_20250128_173109.jpg" alt="Stone engraving signage board">
+                        <img class="product-slide" src="images/stone/IMG_20250228_122300.jpg" alt="Stone engraving signage board">
+                        <img class="product-slide" src="images/stone/IMG_20250228_122308.jpg" alt="Stone engraving signage board">
+                        <img class="product-slide" src="images/stone/IMG_20250228_122422.jpg" alt="Stone engraving signage board">
+                        <img class="product-slide" src="images/stone/IMG_20250228_122428.jpg" alt="Stone engraving signage board">
+                        <img class="product-slide" src="images/stone/IMG_20250228_122510.jpg" alt="Stone engraving signage board">
+                        <img class="product-slide" src="images/stone/IMG_20250228_122515.jpg" alt="Stone engraving signage board">
+                        <img class="product-slide" src="images/stone/IMG_20250716_203721.jpg" alt="Stone engraving signage board">
+                        <img class="product-slide" src="images/stone/IMG_20250716_203730.jpg" alt="Stone engraving signage board">
+                        <img class="product-slide" src="images/stone/IMG_20260501_163927.jpg" alt="Stone engraving signage board">
+                        <img class="product-slide" src="images/stone/Screenshot_2025-06-16-17-13-52-110_com.whatsapp.jpg" alt="Stone engraving signage board">
+                        <img class="product-slide" src="images/stone/Screenshot_2025-06-16-17-36-19-380_com.whatsapp.jpg" alt="Stone engraving signage board">
+                        <img class="product-slide" src="images/stone/Screenshot_2025-06-20-20-59-42-616_com.whatsapp.w4b.jpg" alt="Stone engraving signage board">
+                    </div>
+                    <button class="slider-button prev" type="button" aria-label="Previous Stone Engraving image">‹</button>
+                    <button class="slider-button next" type="button" aria-label="Next Stone Engraving image">›</button>
+                    <div class="slider-dots" aria-hidden="true"><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span></div>
                 </div>
                 <h3 class="text-2xl font-semibold mb-2">Stone Engraving</h3>
-                <p class="text-gray-400 mb-4">Premium marble and stone engraving for foundation stones, plaques, and lasting commemorative displays.</p>
-                <a href="https://www.thesssign.top/" class="text-blue-400 hover:underline">Explore Collection →</a>
+                <p class="text-gray-400 mb-4">Black granite, marble, and stone engraving work for foundation stones, memorial boards, and official plaques.</p>
+                <a href="https://www.sssign.top/" class="text-blue-400 hover:underline">Explore Collection →</a>
             </div>
-
             <div class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
                 <div class="product-slider mb-6 rounded-lg">
-                    <img class="product-slide" src="images/acrylicNameplate.jpeg" alt="Acrylic nameplate">
-                    <img class="product-slide" src="images/acrylicNamplate.jpeg" alt="Acrylic house nameplate">
-                    <img class="product-slide" src="images/acrylicMashallahNameplate.jpeg" alt="Acrylic Mashallah nameplate">
-                    <img class="product-slide" src="images/blackmashallah.jpeg" alt="Black acrylic decorative nameplate">
-                    <div class="slider-dots" aria-hidden="true"><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span></div>
+                    <div class="product-track">
+                        <img class="product-slide" src="images/acrylicNameplate/acrylicNamplate.jpeg" alt="Acrylic nameplate design">
+                        <img class="product-slide" src="images/acrylicNameplate/IMG_20230107_134741.jpg" alt="Acrylic nameplate design">
+                        <img class="product-slide" src="images/acrylicNameplate/IMG_20240422_171858.jpg" alt="Acrylic nameplate design">
+                        <img class="product-slide" src="images/acrylicNameplate/IMG_20240424_193027.jpg" alt="Acrylic nameplate design">
+                        <img class="product-slide" src="images/acrylicNameplate/IMG_20240718_173421.jpg" alt="Acrylic nameplate design">
+                        <img class="product-slide" src="images/acrylicNameplate/IMG_20240809_170140.jpg" alt="Acrylic nameplate design">
+                        <img class="product-slide" src="images/acrylicNameplate/IMG_20241128_165630.jpg" alt="Acrylic nameplate design">
+                        <img class="product-slide" src="images/acrylicNameplate/IMG_20250910_114736.jpg" alt="Acrylic nameplate design">
+                        <img class="product-slide" src="images/acrylicNameplate/IMG_20250921_124244.jpg" alt="Acrylic nameplate design">
+                        <img class="product-slide" src="images/acrylicNameplate/Screenshot_2025-07-27-18-30-09-986_com.whatsapp.jpg" alt="Acrylic nameplate design">
+                    </div>
+                    <button class="slider-button prev" type="button" aria-label="Previous Acrylic Nameplate image">‹</button>
+                    <button class="slider-button next" type="button" aria-label="Next Acrylic Nameplate image">›</button>
+                    <div class="slider-dots" aria-hidden="true"><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span></div>
                 </div>
                 <h3 class="text-2xl font-semibold mb-2">Acrylic Nameplate</h3>
-                <p class="text-gray-400 mb-4">Clean acrylic nameplates with polished finishing for homes, offices, apartments, and reception areas.</p>
+                <p class="text-gray-400 mb-4">Clean acrylic nameplates with modern finishes, ideal for homes, offices, clinics, and apartment entrances.</p>
                 <a href="https://www.sssign.top/" class="text-blue-400 hover:underline">Explore Collection →</a>
             </div>
-
             <div class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
                 <div class="product-slider mb-6 rounded-lg">
-                    <img class="product-slide" src="images/nameplateDesign.jpeg" alt="Fixed nameplate design">
-                    <img class="product-slide" src="images/nameplateDesugn.jpeg" alt="Ready nameplate design">
-                    <img class="product-slide" src="images/telugunamplate.jpeg" alt="Telugu fixed nameplate design">
-                    <img class="product-slide" src="images/teluguSSNameplate.jpeg" alt="Telugu stainless steel nameplate design">
-                    <div class="slider-dots" aria-hidden="true"><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span><span class="slider-dot"></span></div>
+                    <div class="product-track">
+                        <img class="product-slide" src="images/fixPrice/acrylicMashallahNameplate.jpeg" alt="Fixed design acrylic nameplate">
+                        <img class="product-slide" src="images/fixPrice/acrylicNameplate.jpeg" alt="Fixed design acrylic nameplate">
+                    </div>
+                    <button class="slider-button prev" type="button" aria-label="Previous Fixed Design Nameplates image">‹</button>
+                    <button class="slider-button next" type="button" aria-label="Next Fixed Design Nameplates image">›</button>
+                    <div class="slider-dots" aria-hidden="true"><span class="slider-dot"></span><span class="slider-dot"></span></div>
                 </div>
                 <h3 class="text-2xl font-semibold mb-2">Fixed Design Nameplates</h3>
-                <p class="text-gray-400 mb-4">Ready fixed designs with no customization, priced simply by size for fast ordering and easy budgeting.</p>
+                <p class="text-gray-400 mb-4">Ready-style acrylic nameplate designs with no customization, priced simply based on selected size.</p>
                 <a href="https://www.sssign.top/" class="text-blue-400 hover:underline">Explore Collection →</a>
             </div>
-
         </div>
     </header>
 
@@ -396,6 +487,20 @@
             field.addEventListener('change', updateQuote);
         });
 
+        document.querySelectorAll('.product-slider').forEach((slider) => {
+            const track = slider.querySelector('.product-track');
+            const previous = slider.querySelector('.slider-button.prev');
+            const next = slider.querySelector('.slider-button.next');
+            const move = (direction) => track.scrollBy({ left: direction * track.clientWidth, behavior: 'smooth' });
+            previous.addEventListener('click', (event) => {
+                event.preventDefault();
+                move(-1);
+            });
+            next.addEventListener('click', (event) => {
+                event.preventDefault();
+                move(1);
+            });
+        });
         themeToggle.addEventListener('click', () => {
             const isDayMode = document.body.classList.toggle('day-mode');
             themeToggle.setAttribute('aria-label', isDayMode ? 'Switch to night mode' : 'Switch to day mode');
