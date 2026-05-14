@@ -113,12 +113,23 @@
                     <label class="sm:col-span-3">
                         <span class="block text-sm font-semibold text-gray-300 mb-2">Material</span>
                         <select id="material" class="form-control w-full rounded-lg px-4 py-3">
-                            <option value="ss-nameplate-silver">Stainless Steel Silver nameplate</option>
-                            <option value="ss-nameplate-gold">Stainless Steel Gold nameplate</option>
-                            <option value="ss-letters-silver">Stainless Steel Silver Letters</option>
-                            <option value="ss-letters-gold">Stainless Steel Gold Letters</option>
+                            <option value="ss-nameplate-silver">s s Silver nameplate Engraved</option>
+                            <option value="ss-nameplate-silver_em">s s Silver nameplate Embossed</option>
+                            <option value="ss-nameplate-silver-LED">s s Silver nameplate with LED</option>
+                            <option value="ss-letters-silver">s s Silver Letters</option>
+                            <option value="ss-letters-silver-LED">s s Silver Letters with LED</option>
+
+
+                            <option value="ss-nameplate-gold">s s Gold nameplate Engraved</option>
+                            <option value="ss-nameplate-gold_em">s s Gold nameplate Embossed</option>
+                            <option value="ss-nameplate-gold-LED">s s Gold nameplate with LED</option>
+                            <option value="ss-letters-gold">s s Gold Letters</option>
+                            <option value="ss-letters-gold-LED">s s Gold Letters with LED</option>
+
                             <option value="acrylic-nameplate">Acrylic 8mm nameplate</option>
-                            <option value="granite-board">Black granite stone board</option>
+                            <option value="granite-board">Black granite Engraved</option>
+                            <option value="granite-board-em">Black granite Embossed</option>
+                            <option value="white-board">White Marble Engraved</option>
                         </select>
                     </label>
 
@@ -149,9 +160,14 @@
                         <span class="block text-sm text-gray-400">Estimated Quote</span>
                         <strong id="quote" class="text-3xl md:text-4xl font-bold text-white">Rs 1,000</strong>
                     </div>
-                    <a id="whatsappQuote" href="https://wa.me/918332099014" class="inline-flex items-center justify-center rounded-lg bg-green-600 px-5 py-3 font-semibold text-white shadow-lg transition-all hover:bg-green-700">
-                        Send quote on WhatsApp
-                    </a>
+                    <div class="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+                        <a id="previewProducts" href="preview.html?material=ss-nameplate-silver" class="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/10 px-5 py-3 font-semibold text-white shadow-lg transition-all hover:bg-white/20">
+                            Preview products
+                        </a>
+                        <a id="whatsappQuote" href="https://wa.me/918332099014" class="inline-flex items-center justify-center rounded-lg bg-green-600 px-5 py-3 font-semibold text-white shadow-lg transition-all hover:bg-green-700">
+                            Send quote on WhatsApp
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -183,7 +199,7 @@
                 </div>
             </div>
         </section>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
             <div class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
                 <div class="product-slider mb-6 rounded-lg">
@@ -387,7 +403,8 @@
                     <p class="mt-4 section-muted">
                         See customer reviews, ratings, business details, photos, and latest updates for S S SIGN on Google Business Profile.
                     </p>
-                    <a href="https://www.google.com/search?q=s+s+sign+foundation+stones+steel+letters+steel+nameplates+led+sign+boards+hyderabad" target="_blank" rel="noopener" class="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-blue-600 px-5 py-3 font-semibold text-white shadow-lg transition-all hover:bg-blue-700">
+                    <a href="https://www.google.com/search?q=s+s+sign+foundation+stones+steel+letters+steel+nameplates+led+sign+boards+hyderabad#sv=CAESzQEKuQEStgEKd0FNbjMteVF0YmEzRWhmYlNEZXlYZDBWaVdsbHg3ZlBZMkFsTnNvRTFvQVZXRGkwVDBFbjFSQ2RtbzYzLUxMWWpKcldPeFhha2R0SXdxWlNGRmNhQkVEUlFUclVSczV5ZEZvUkVJU1drb2lSR3U3U0IwS09iNWhnEhdyY3NFYXVxMUt1V09zZU1QMXZ2WDBRMBoiQUpLTEZtSzJzWlBhZVRtcTdGRFRJb043ejl5V1NrRjRMQRIEODA1MRoBMyoAMAA4AUAAGAAgh6LQggg6AEoCEAI"
+                    target="_blank" rel="noopener" class="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-blue-600 px-5 py-3 font-semibold text-white shadow-lg transition-all hover:bg-blue-700">
                         Read Google Reviews
                     </a>
 
@@ -424,27 +441,60 @@
         const materialRates = {
             'ss-nameplate-silver': {
                 label: 'Stainless Steel Silver nameplate',
-                rate: 1150 / 144
-            },
-            'ss-nameplate-gold': {
-                label: 'Stainless Steel Gold nameplate',
-                rate: 1250 / 108
+                rate: 1150 / 144           // #Cost / size
             },
             'ss-letters-silver': {
                 label: 'Stainless Steel Silver Letters',
                 rate: 540 / 60
             },
+            'ss-nameplate-silver_em': {
+                label: 'Stainless Steel Silver nameplate with embossing',
+                rate: 1350 / 144
+            },
+            'ss-nameplate-silver-LED': {
+                label: 'Stainless Steel Silver nameplate with LED',
+                rate: 1800 / 144
+            },
+            'ss-letters-silver-LED': {
+                label: 'Stainless Steel Silver Letters with embossing',
+                rate: 800 / 60
+            },
             'ss-letters-gold': {
                 label: 'Stainless Steel Gold Letters',
-                rate: 660 / 60
+                rate: 760 / 60
             },
+             'ss-letters-gold-LED': {
+                label: 'Stainless Steel Gold Letters',
+                rate: 1250 / 60
+            },
+            'ss-nameplate-gold': {
+                label: 'Stainless Steel Gold nameplate',
+                rate: 1500 / 108
+            },
+            'ss-nameplate-gold_em': {
+                label: 'Stainless Steel Gold nameplate with embossing',
+                rate: 1850 / 108
+            },
+             'ss-nameplate-gold-LED': {
+                label: 'Stainless Steel Gold nameplate with embossing',
+                rate: 2450 / 60
+            },
+
             'acrylic-nameplate': {
                 label: 'Acrylic 8mm nameplate',
                 rate: 1500 / 144
             },
             'granite-board': {
                 label: 'Black granite stone board',
-                rate: 700 / 144
+                rate: 1000 / 144
+            },
+            'granite-board-em': {
+                label: 'Black granite embossed board',
+                rate: 800 / 144
+            },
+            'white-board': {
+                label: 'White marble engraved board',
+                rate: 1200 / 144
             }
         };
 
@@ -462,6 +512,7 @@
         const unitInput = document.getElementById('unit');
         const quoteOutput = document.getElementById('quote');
         const whatsappQuote = document.getElementById('whatsappQuote');
+        const previewProducts = document.getElementById('previewProducts');
         const themeToggle = document.getElementById('themeToggle');
 
         function formatQuote(value) {
@@ -480,6 +531,7 @@
             const message = `Hi S S SIGN,\nI need a quote for ${selectedMaterial.label}.\nSize: ${length} ${unit} length x ${height} ${unit} height. \nEstimated quote: ${formattedQuote}.`;
             quoteOutput.textContent = formattedQuote;
             whatsappQuote.href = `https://wa.me/918332099014?text=${encodeURIComponent(message)}`;
+            previewProducts.href = `preview.html?material=${encodeURIComponent(materialInput.value)}`;
         }
 
         [materialInput, lengthInput, heightInput, unitInput].forEach((field) => {
